@@ -1,0 +1,37 @@
+{
+  "title": "Change Control_L Key to ESC",
+  "rules": [
+    {
+      "description": "Post Escape if Control_L is pressed alone.",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_control"
+          },
+          "to": [
+            {
+              "key_code": "left_control"
+            }
+          ],
+		  "parameters": {
+			  "basic.to_if_alone_timeout_milliseconds": 1000
+		  },
+          "to_if_alone": [
+            {
+				"key_code": "escape"
+			}
+          ],
+		  "to_after_key_up": [
+			  {
+				"select_input_source": 
+				{
+					"input_source_id": "^com\\.apple\\.keylayout\\.ABC$"
+				}
+			  }
+		  ]
+		}
+      ]
+    }
+  ]
+}
